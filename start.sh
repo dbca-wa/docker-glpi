@@ -7,7 +7,7 @@ shopt -s dotglob
 if [ ! -f "index.php" ]; then
   curl -o /tmp/glpi.tgz -L https://github.com/glpi-project/glpi/releases/download/$GLPI_VERSION/glpi-$GLPI_VERSION.tgz
   tar xvf /tmp/glpi.tgz; rm /tmp/glpi.tgz
-  mv -v glpi/* .; rmdir glpi
+  mv -v glpi/* .; rmdir glpi; chown -R www-data files config marketplace
 fi
 
 # first arg is `-f` or `--some-option`

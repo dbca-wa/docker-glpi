@@ -6,4 +6,6 @@ RUN install-php-extensions gd mysqli intl xmlrpc apcu
 
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
+
 ENTRYPOINT ["start.sh"]
+CMD ["apache2-foreground"]

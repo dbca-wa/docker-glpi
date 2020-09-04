@@ -3,7 +3,7 @@ ENV GLPI_VERSION "9.5.1"
 
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/bin/
 RUN install-php-extensions gd mysqli intl xmlrpc apcu
-RUN apt install vim
+RUN apt -y update; apt -y install vim
 
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh

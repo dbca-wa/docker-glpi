@@ -5,4 +5,4 @@ COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr
 RUN install-php-extensions gd mysqli intl xmlrpc apcu
 
 ADD https://github.com/glpi-project/glpi/releases/download/$GLPI_VERSION/glpi-$GLPI_VERSION.tgz /var/www/html
-RUN tar xvf glpi-$GLPI_VERSION.tgz; rm glpi-$GLPI_VERSION.tgz
+RUN tar xvf glpi-$GLPI_VERSION.tgz; rm glpi-$GLPI_VERSION.tgz; chown -R www-data glpi
